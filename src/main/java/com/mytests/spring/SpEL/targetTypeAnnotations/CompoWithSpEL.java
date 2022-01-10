@@ -1,8 +1,6 @@
 package com.mytests.spring.SpEL.targetTypeAnnotations;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 /**
