@@ -30,10 +30,11 @@ public class MyAnnoAspect {
         MyAnno myAnno = method.getAnnotation(MyAnno.class);
         // parse expression and get the boolean result      
         Boolean expr = (Boolean) MyCustomSpELProcessor.getDynamicValue(signature.getParameterNames(), joinPoint.getArgs(), varsService.getVars(), myAnno.expr());
-
+          
         if (expr) {
             System.out.println(signature.getMethod().getName() + " passed");
-            return joinPoint.proceed();        } else {
+            return joinPoint.proceed();        } 
+        else {
             System.out.println(("expression should return true, but returns " + expr+ ":"));
             System.out.println(signature.getMethod().getName() + " failed");
             return  null;

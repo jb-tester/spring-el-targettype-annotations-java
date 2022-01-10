@@ -2,6 +2,7 @@ package com.mytests.spring.SpEL.targetTypeAnnotations;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 /**
@@ -11,15 +12,15 @@ import org.springframework.stereotype.Component;
 public class CompoWithSpEL {
     
     //@el( root:org.springframework.beans.factory.config.BeanExpressionContext)
-    @Value("#{#root.getBeanFactory().beanDefinitionNames[0]}")
+    @Value("#{#root.getBeanFactory().containsBean('testBean')?#root.getBeanFactory().getBean('testBean'):'none'}")
     String p1;
     
     
     public void someMethod(){
-        System.out.println("=== test #root using in @Value annotation: ");
+      
         System.out.println(p1);
 
     }
 
-    
+   
 }
